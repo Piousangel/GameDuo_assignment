@@ -1,26 +1,34 @@
 import { Body, Controller, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreateUserDto } from 'src/dto/create-user.dto';
-import { RaidStatus, User } from './users.model';
+import { User } from './users.model';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
 
-    constructor(private usersService: UsersService){}
+    constructor(private usersService: UsersService){}ß
 
     @Get('/')
-    getAllUsers() : User[] {
+    async getAllUsers() : Promise<User[]> {
 
-        return this.usersService.getAllUsers();
+        return await this.usersService.getAllUsers();
+    }
+
+    @Get('/:id')
+    async getUserById(
+        @Param('userId') userId  : number,
+        
+    ){
+        return await this.usersService.getUserById(userId);
     }
 
     @Post('/')
     @UsePipes(ValidationPipe)
-    createUser(
+    async createUser(
 
         @Body() createUserDto : CreateUserDto
-    ) : User {
-        return this.usersService.createUser(createUserDto)
+    ) : Promise<User> {
+        return await this.usersService.createUser(createUserDto);
     }
 
     // @Patch('/:id/status')
@@ -32,14 +40,14 @@ export class UsersController {
     // }
 
     @Post('/bossRaid/enter')
-    enterBossRaid(
+    async enterBossRaid(
 
-        @Body('userId') id : number,
+        @Body('userId') userId : number,
         @Body('level') level : number,
         
         
     ){
-        return this.usersService.enterBossRaid(id)
+        return await this.usersService.enterBossRaid(userId)
     }
 
 }

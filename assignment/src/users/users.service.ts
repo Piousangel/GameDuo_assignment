@@ -1,5 +1,5 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import {User, RaidStatus} from './users.model';
+import { User } from './users.model';
 // import { v1 as uuid } from 'uuid';
 import { CreateUserDto } from 'src/dto/create-user.dto'; 
 
@@ -9,23 +9,23 @@ export class UsersService {
 
     createUser(createUserDto : CreateUserDto) {
 
-        const userId = createUserDto.id;
+        const userId = createUserDto.userId;
 
         //중복 검사
         //const isValid = async findAll() 
         
-        if(isValid) {
-            const user : User = {
-                id : userId,
-                bossRaid : RaidStatus.STOP
-            }
+        // if(isValid) {
+        //     const user : User = {
+        //         id : userId,
+                
+        //     }
     
-            this.users.push(user);
-            return user;
-        }
-        else{
-            throw new ConflictException(`중복된 아이디입니다.`);
-        }
+        //     this.users.push(user);
+        //     return user;
+        // }
+        // else{
+        //     throw new ConflictException(`중복된 아이디입니다.`);
+        // }
 
         
     }

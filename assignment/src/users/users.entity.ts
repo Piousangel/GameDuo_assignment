@@ -1,13 +1,19 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { RaidStatus } from "./users.model";
+import { BaseEntity, Column, Entity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+// import { RaidStatus } from "./users.model";
 
 
 @Entity()
 export class User extends BaseEntity{
 
     @PrimaryGeneratedColumn()
-    id : number;
+    userId : number;
 
     @Column()
-    bossRaid: RaidStatus;
+    level: number;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 }

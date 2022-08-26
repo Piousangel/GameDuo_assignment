@@ -1,9 +1,9 @@
 export interface User {
-    id : number;
-    bossRaid: RaidStatus;
+    UserId : number;
+    level: number;
 }
 
-export enum RaidStatus {
-    RUNNING = "RUNNING",
-    STOP = "STOP"
-}
+// export enum RaidStatus {
+//     RUNNING = "RUNNING",
+//     STOP = "STOP"
+// }ß
