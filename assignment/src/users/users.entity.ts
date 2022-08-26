@@ -1,5 +1,5 @@
 import { BaseEntity, Column, Entity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-// import { RaidStatus } from "./users.model";
+import { RaidStatus } from "./user-status.enum"; 
 
 
 @Entity()
@@ -10,6 +10,9 @@ export class User extends BaseEntity{
 
     @Column()
     level: number;
+
+    @Column()
+    isEntered: boolean
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;

@@ -1,11 +1,11 @@
-import { EntityRepository, Repository } from "typeorm";
+import {CustomRepository, Repository } from "typeorm";
 import { User } from "./users.entity";
 import { CreateUserDto } from "src/dto/create-user.dto";
+import { CustomRe}
 
-@EntityRepository(User)
+@CustomRepository(User)
 export class UserRepository extends Repository<User> {
 
-    
     async createBoard(createUserDto: CreateUserDto) : Promise<User> {
         const userId = createUserDto.userId;
 
