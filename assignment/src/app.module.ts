@@ -1,13 +1,16 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersService } from './users/users.service';
-import { TypeOrmModule } from '@nestjs/typeorm'
-import { UserRepository } from './users/users.repository';
+import { UsersModule } from './users/users.module';
+import { typeORMConfig } from 'configs/typeorm.config';
+import { TypeOrmExModule } from './db/typeorm-ex.module';
+
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserRepository])
+    // TypeOrmModule.forRoot(typeORMConfig),
+    UsersModule,
   ],
-  providers: [UsersService],
+  // providers: [UsersService],
  
 })
 export class AppModule {}
