@@ -1,20 +1,23 @@
-import {Repository } from "typeorm";
-import { User } from "./users.entity";
-// import { CreateUserDto } from "src/dto/create-user.dto";
-import { CustomRepository } from "../db/typeorm-ex.decorator";
+// import {EntityRepository, Repository } from "typeorm";
+// import { User } from "./users.entity";
+// // import { CreateUserDto } from "src/dto/create-user.dto";
+// import { CustomRepository } from "src/db/typeorm-ex.decorator"; 
 
-@CustomRepository(User)
-export class UserRepository extends Repository<User> {
+// // @EntityRepository(User)
 
-    async createBoard(userId : number) : Promise<User> {
-        
-        const user = this.create({ 
-          userId,
-          level : 1,
-        })
+// @CustomRepository(User)
+// export class UserRepository extends Repository<User> {
 
-        await this.save(user);
-        return user;
-    }
+//     async createUser(userId : number) : Promise<User> {
+//         const user = this.create({ 
+//           userId,
+//           totalScore : 0,
+//           isEntered : false,
+          
+//         })
+
+//         await this.save(user);
+//         return user;
+//     }
     
-}
+// }

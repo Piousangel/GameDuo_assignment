@@ -1,23 +1,26 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException, Inject } from '@nestjs/common';
 // import { User } from './users.model';
 // import { v1 as uuid } from 'uuid';
 import { CreateUserDto } from 'src/dto/create-user.dto'; 
-import { UserRepository } from './users.repository';
+// import { UserRepository } from './users.repository'; 
 import { User } from './users.entity';
-//import { InjectRepository } from '@nestjs/typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService {
     // private users : User[] = [];  //local
 
+    
     constructor(
-        //@InjectRepository(UserRepository)
-        private userRepository : UserRepository,
+        
+        @InjectRepository(User)
+        private userRepository : Repository<User>,
     ){}
 
     async createUser(createUserDto : CreateUserDto) : Promise<User> {
 
-        const {userId, level} = createUserDto;
+        const userId = createUserDto.userId;
 
         const user = this.userRepository.create({
             userId,

@@ -4,8 +4,9 @@ export class CreateUserDto {
     @IsNotEmpty()
     userId : number;
 
-    @IsNotEmpty()
-    level : number;
+    // @IsNotEmpty()
+    // totalScore : number;
 
+    // // raidRecords : 
     
 }

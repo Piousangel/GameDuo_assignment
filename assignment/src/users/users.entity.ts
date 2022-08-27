@@ -9,10 +9,13 @@ export class User extends BaseEntity{
     userId : number;
 
     @Column()
-    level: number;
+    totalScore: number;
 
     @Column()
-    isEntered: boolean
+    isEntered: boolean;
+
+    // @OneToMany()
+    // raidRecords : [];
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;

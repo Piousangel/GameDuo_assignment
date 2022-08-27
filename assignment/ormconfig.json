@@ -1,0 +1,28 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5123",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "user-app",
+    "extra": {
+        "ssl": {
+            "rejectUnauthorized": false
+        }
+    },
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "server/**/*.entity.ts"
+    ],
+    "migrations": [
+        "server/migration/**/*.ts"
+    ],
+    "subscribers": [
+        "server/subscriber/**/*.ts"
+    ],
+    "cli": {
+        "migrationsDir": "server/migration",
+        "subscribersDir": "server/subscriber"
+    }
+}

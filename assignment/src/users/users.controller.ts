@@ -7,7 +7,7 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
 
-    constructor(private usersService: UsersService){}ß
+    constructor(private usersService: UsersService){}
 
     // @Get('/')
     // async getAllUsers() : Promise<User[]> {
@@ -23,10 +23,10 @@ export class UsersController {
     @Post('/')
     @UsePipes(ValidationPipe)
     async createUser(
-
+        
         @Body() createUserDto : CreateUserDto
     ) : Promise<User> {
-
+        console.log("123");
         return await this.usersService.createUser(createUserDto);
     }
 
